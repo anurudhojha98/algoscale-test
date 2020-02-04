@@ -1,0 +1,42 @@
+<mat-card class=" example-form example-full-width">
+  <mat-card-title>
+    Sign Up
+  </mat-card-title>
+  <mat-card-content>
+      <form >
+          <mat-form-field class="example-form-width">
+            <input matInput type="text"  [(ngModel)]="resisterObject.username"
+              name="username" placeholder="Username" [formControl]="username" required
+            />
+            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field  class="example-form-width">
+            <input  matInput   type="text"  [(ngModel)]="resisterObject.email"
+              name="email"  placeholder="Email" required [formControl]="email"
+            />
+            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-form-width">
+            <input matInput   type="password" [(ngModel)]="resisterObject.password"
+              name="password"placeholder="Password" required [formControl]="password"
+            />
+            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-form-width">
+            <input
+              matInput
+              type="password"
+              [(ngModel)]="resisterObject.confirmpwd"
+              name="confirmpwd"
+              placeholder="Confirm password"
+            />
+          </mat-form-field>
+          <button class="sigup-btn"mat-raised-button color="primary" (click)="registerUser()">
+            Sign Up
+          </button>
+        </form>
+        
+  </mat-card-content>
+</mat-card>

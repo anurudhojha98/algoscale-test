@@ -1,0 +1,28 @@
+<mat-card class=" example-form example-full-width">
+  <mat-card-title class="form-title">
+    Login
+  </mat-card-title>
+  <mat-card-content >
+      <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm) ">
+          <mat-form-field  class="example-form-width">
+            <input  matInput type="text"[(ngModel)]="loginObj.email" name="email"[formControl]="email"
+              placeholder="Email" required/>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-form-width">
+            <input matInput type="password" [(ngModel)]="loginObj.password"name="password"
+            [formControl]="password" placeholder="Password" required/>
+            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <br />
+          <button class="login-btn" mat-raised-button color="primary" >
+            Login
+          </button><br>
+          <div class="forget-pwd">
+          <span><a href="#">Forgot Password?</a></span>
+          <span class="m-left"><a [routerLink]="['/register']">Go to Signup</a></span>
+          </div>
+        </form>   
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span style="font-size: 22px;">Algoscale Webapp</span>
+    <button mat-button *ngIf="authService.isAuthenticated" routerLink="/users">Users</button>
+    <span style="flex: 1 "></span>
+    <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/login">Login</button>
+    <button mat-button *ngIf="authService.isAuthenticated" (click)="logout()">Logout</button>
+    <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/register">SignUp</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<span *ngIf="update">There is an update for your app!</span>
+<router-outlet></router-outlet>
